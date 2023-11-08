@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TropiTrade</title>
+    <link rel="stylesheet" href="style-home.css">
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-text">Free Shipping On All Orders</div>
+    </div>
+
+    <!-- Title -->
+    <h1 class="title">Discover and Bid on Secondhand Items</h1>
+
+    <!-- Categories -->
+    <div class="category-filter">
+        <button class="category-button" onclick="filterItems('all')">All</button>
+        <button class="category-button" onclick="filterItems('bebes')">Bebés y Niños</button>
+        <button class="category-button" onclick="filterItems('arte')">Coleccionables y Arte</button>
+        <button class="category-button" onclick="filterItems('deportes')">Deportes y Aire Libre</button>
+    </div>
+
+     <!-- Listings -->
+    <div class="container">
+        <div class="listings" data-category="bebes">
+            <img src="Assets/Celuloides_en_venta_-_1.jpg_3526b704 (1).jpeg" alt="Item Image" class="item-image">
+            <h3 class="item-title">Jamba Juice had a little lamb named henry and their son was named charles</h3>
+
+        </div>
+    
+        <div class="listings" data-category="bebes">
+            <img src="Assets/Screenshot 2023-11-07 at 2.33.38 PM.png" alt="Item Image" class="item-image">
+            <h3 class="item-title">Item Title</h3>
+        </div>
+        <div class="listings" data-category="arte">
+            <img src="Assets/Celuloides_en_venta_-_1.jpg_3526b704 (1).jpeg" alt="Item Image" class="item-image">
+            <h3 class="item-title">Item Title</h3>
+
+        </div>
+        <div class="listings" data-category="deportes">
+            <img src="Assets/Screenshot 2023-11-07 at 2.33.38 PM.png" alt="Item Image" class="item-image">
+            <h3 class="item-title">Item Title</h3>
+
+        </div>
+        <div class="listings" data-category="deportes">5</div>
+        <div class="listings" data-category="deportes">6</div>
+    </div>
+
+    <script>
+        // JavaScript function to filter items by category
+        function filterItems(category) {
+            var items = document.querySelectorAll('.listings');
+            items.forEach(function(item) {
+                if(category === 'all' || item.getAttribute('data-category') === category) {
+                    item.style.display = ''; // Reset to default display style (flex, block, etc.)
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+        </script>
+</body>
+</html>
