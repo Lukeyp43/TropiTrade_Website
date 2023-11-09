@@ -6,6 +6,9 @@
     <title>TropiTrade</title>
     <link rel="icon" type="image/x-icon" href="Assets/tropitrade-favicon.png">
     <link rel="stylesheet" href="style-home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,500;6..12,600;6..12,700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Header -->
@@ -18,10 +21,54 @@
 
     <!-- Categories -->
     <div class="category-filter">
-        <button class="category-button" onclick="filterItems('all')">All</button>
-        <button class="category-button" onclick="filterItems('bebes')">Bebés y Niños</button>
-        <button class="category-button" onclick="filterItems('arte')">Coleccionables y Arte</button>
-        <button class="category-button" onclick="filterItems('deportes')">Deportes y Aire Libre</button>
+        <div class="category-button" onclick="filterItems('electronics')">
+            <div class="category-image-background">
+                <img src="Assets/phone-icon.png" alt="Electronics" class="category-image">
+            </div>
+            <span class="category-text">Electrónica y celulares</span>
+        </div>
+        <div class="category-button" onclick="filterItems('home')">
+            <div class="category-image-background">
+                <img src="Assets/couch-icon.png" alt="Electronics" class="category-image">
+            </div>
+            <span class="category-text">Artículos para <br> tu hogar</span>
+        </div>
+        <div class="category-button" onclick="filterItems('men')">
+            <div class="category-image-background">
+                <img src="Assets/men-clothing.png" alt="Electronics" class="category-image">
+            </div>
+            <span class="category-text">Ropa y zapatos para hombre</span>
+        </div>
+        <div class="category-button" onclick="filterItems('women')">
+            <div class="category-image-background">
+                <img src="Assets/women-clothing.png" alt="Electronics" class="category-image">
+            </div>
+            <span class="category-text">Ropa y zapatos para mujer</span>
+        </div>
+        <div class="category-button" onclick="filterItems('sports')">
+            <div class="category-image-background">
+                <img src="Assets/soccer-icon.png" alt="Electronics" class="category-image">
+            </div>
+            <span class="category-text">Deportes y tiempo libres</span>
+        </div>
+        <div class="category-button" onclick="filterItems('music')">
+            <div class="category-image-background">
+                <img src="Assets/guitar-icon.png" alt="Electronics" class="category-image">
+            </div>
+            <span class="category-text">Música y pasatiempos</span>
+        </div>
+        <div class="category-button" onclick="filterItems('kids')">
+            <div class="category-image-background">
+                <img src="Assets/toy-icon.png" alt="Electronics" class="category-image">
+            </div>
+            <span class="category-text">Artículos para niños</span>
+        </div>
+        <div class="category-button" onclick="filterItems('all')">
+            <div class="category-image-background">
+                <img src="Assets/all-icon.png" alt="Electronics" class="category-image">
+            </div>
+            <span class="category-text">Todas las categorías</span>
+        </div>
     </div>
 
      <!-- Listings -->

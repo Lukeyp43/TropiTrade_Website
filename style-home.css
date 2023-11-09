@@ -1,6 +1,7 @@
 body {
     margin: 0;
     padding: 0;
+    font-family: 'Nunito Sans', sans-serif;
 }
 
 /* Header code */
@@ -31,22 +32,88 @@ body {
     flex-wrap: wrap; /* Allows category buttons to wrap onto the next line if needed */
     justify-content: center; /* Centers the buttons */
     gap: 10px; /* Spacing between buttons */
-    margin: 20px 0px 0px 0px; /* Space between category filter and search bar */
+    margin: 20px 0; /* Space between category filter and items */
 }
 
 .category-button {
-    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
     border: none;
-    background-color: #f0f0f0; /* Example color */
-    border-radius: 20px; /* Rounded corners */
     cursor: pointer;
-    transition: background-color 0.3s; /* Smooth transition for hover effect */
+    transition: background-color 0.3s;
+    width: 35px; /* Width of the square */
+    height: auto; /* Auto height to fit content */
+    margin-bottom: 5px; /* Space between the button and the text */
 }
 
-.category-button:hover {
-    background-color: #e0e0e0; /* Darker shade on hover */
+.category-button:hover .category-image-background {
+    background-color: #e0e0e0;
 }
 
+.category-image-background {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px; /* Width of the square */
+    height: 35px; /* Height of the square */
+    background-color: #f0f0f0; /* Gray background */
+    border-radius: 5px;
+}
+
+/* Category Filter Styling */
+
+.category-filter {
+    display: flex;
+    flex-wrap: wrap; /* Allows category buttons to wrap onto the next line if needed */
+    overflow-x: hidden; /* No horizontal scroll for non-phone devices */
+    justify-content: center; /* Centers the buttons */
+    gap: 10px; /* Spacing between buttons */
+    margin: 20px 0; /* Space between category filter and items */
+}
+
+.category-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    border: none;
+    transition: background-color 0.3s;
+    width: 85px; /* Width of the square */
+    height: auto; /* Auto height to fit content */
+    margin-bottom: 5px; /* Space between the button and the text */
+    margin-right: 10px;
+}
+
+.category-button:hover .category-image-background {
+    background-color: #e0e0e0;
+}
+
+.category-image-background {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px; /* Width of the square */
+    height: 45px; /* Height of the square */
+    background-color: #f0f0f0; /* Gray background */
+    border-radius: 5px;
+}
+
+.category-image {
+    width: 35px; /* Making the image smaller than the gray box */
+    height: 35px; /* Keeping the image aspect ratio */
+}
+
+.category-text {
+    font-size: 10px; /* Smaller font size to fit under the small image */
+    text-align: center;
+    width: 100%; /* Ensure the text aligns with the width of the button */
+    margin-top: 5px;
+    font-weight: 500;
+}
 
 
 /* Listing code */
