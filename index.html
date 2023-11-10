@@ -11,15 +11,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,500;6..12,600;6..12,700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header -->
+    <!-------------------------------------------- Header ---------------------------------------------->
     <div class="header">
-        <div class="header-text">Free Shipping On All Orders</div>
-    </div>
+        <div class="header-text">Envío gratis en todos los pedidos durante &#8203;</div>
+        <div class="countdown-text" id="countdown">
+            <span id="hours"></span>h
+            <span id="minutes"></span>m
+            <span id="seconds"></span>s
+        </div>
+    </div>    
 
-    <!-- Title -->
-    <h1 class="title">Discover and Bid on Secondhand Items</h1>
+    <!---------------------------------------------- Title ---------------------------------------------->
+    <h1 class="title">Descubre y Haz Ofertas en Artículos de Segunda Mano</h1>
 
-    <!-- Categories -->
+    <!---------------------------------------------- Categories ---------------------------------------------->
     <div class="category-filter">
         <div class="category-button" onclick="filterItems('electronics')">
             <div class="category-image-background">
@@ -71,7 +76,7 @@
         </div>
     </div>
 
-     <!-- Listings -->
+     <!---------------------------------------------- Listings ---------------------------------------------->
     <div class="container">
         <div class="listings" data-category="electronics">
             <img data-src="listing-images/Screenshot_2023-10-08_at_6.54.44_PM_958fe0ad.png" alt="Item Image" class="item-image">
@@ -107,7 +112,7 @@
         </div>
         <div class="listings" data-category="women">
             <img data-src="listing-images/IMG_20230908_143220.jpg_6ee88c63.jpeg" alt="Item Image" class="item-image">
-            <h3 class="item-title">chaqueta acolchada blanca y esponjosa</h3>
+            <h3 class="item-title">Chaqueta acolchada blanca y esponjosa</h3>
         </div>
         <div class="listings" data-category="electronics">
             <img data-src="listing-images/DVDs_originales_-_1.jpg_4d4b471b.jpeg" alt="Item Image" class="item-image">
@@ -540,7 +545,7 @@
     </div>
 
     <script>
-        // JavaScript function to filter items by category
+        //----------------------------------- JavaScript function to filter items by category -----------------------------------
         function filterItems(category) {
             var items = document.querySelectorAll('.listings');
             items.forEach(function(item) {
@@ -552,7 +557,7 @@
             });
         }
 
-        // JavaScript for lazy loading
+        //----------------------------------- JavaScript for lazy loading -----------------------------------
                 document.addEventListener('DOMContentLoaded', (event) => {
         const listings = document.querySelectorAll('.listings .item-image[data-src]');
 
@@ -576,6 +581,38 @@
             imgObserver.observe(img); // Start observing each image
         });
         });
+
+
+        //----------------------------------- JavaScript for countdown timer -----------------------------------
+        // Set the date we're counting down to
+        var countDownDate = new Date("Nov 10, 2023 23:59:59").getTime();
+
+        // Update the count down every 1 second
+        var countdownfunction = setInterval(function() {
+
+            // Get today's date and time
+            var now = new Date().getTime();
+                
+            // Find the time remaining
+            var timeleft = countDownDate - now;
+                
+            // Time calculations for hours, minutes and seconds
+            var hours = Math.floor((timeleft / (1000 * 60 * 60)));
+            var minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
+                
+            // Output the result in an element with id="countdown"
+            document.getElementById("hours").innerText = hours;
+            document.getElementById("minutes").innerText = minutes;
+            document.getElementById("seconds").innerText = seconds;
+                
+            // If the count down is over, write some text 
+            if (timeleft < 0) {
+                clearInterval(countdownfunction);
+                document.getElementById("countdown").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+
 
         </script>
 </body>
