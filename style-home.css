@@ -161,7 +161,7 @@ body {
     margin-top: 0px; /* Reduced top margin */
 }
 
-.category-text, .title {
+.item-title, .title {
     font-weight: bold; /* Makes the text bold */
 }
 
