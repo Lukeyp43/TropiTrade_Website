@@ -584,36 +584,46 @@
 
 
         //----------------------------------- JavaScript for countdown timer -----------------------------------
-        // Set the date we're counting down to
-        var countDownDate = new Date("Nov 10, 2023 23:59:59").getTime();
+        function getNextCountdownTime() {
+        var now = new Date();
+        var target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59);
 
-        // Update the count down every 1 second
-        var countdownfunction = setInterval(function() {
+        // If current time is past 23:59:59, set the target to the same time on the next day
+        if (now > target) {
+            target.setDate(target.getDate() + 1);
+        }
 
-            // Get today's date and time
-            var now = new Date().getTime();
-                
-            // Find the time remaining
-            var timeleft = countDownDate - now;
-                
-            // Time calculations for hours, minutes and seconds
-            var hours = Math.floor((timeleft / (1000 * 60 * 60)));
-            var minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
-                
-            // Output the result in an element with id="countdown"
-            document.getElementById("hours").innerText = hours;
-            document.getElementById("minutes").innerText = minutes;
-            document.getElementById("seconds").innerText = seconds;
-                
-            // If the count down is over, write some text 
-            if (timeleft < 0) {
-                clearInterval(countdownfunction);
-                document.getElementById("countdown").innerHTML = "EXPIRED";
-            }
-        }, 1000);
+        return target;
+    }
 
+    // Function to start the countdown
+        function startCountdown() {
+            var countDownDate = getNextCountdownTime().getTime();
 
+            var countdownfunction = setInterval(function() {
+                var now = new Date().getTime();
+                var timeleft = countDownDate - now;
+
+                var hours = Math.floor((timeleft / (1000 * 60 * 60)));
+                var minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
+
+                document.getElementById("hours").innerText = hours;
+                document.getElementById("minutes").innerText = minutes;
+                document.getElementById("seconds").innerText = seconds;
+
+                // When the countdown reaches zero, reset it to the next target time
+                if (timeleft < 0) {
+                    clearInterval(countdownfunction);
+                    startCountdown(); // Restart the countdown
+                }
+            }, 1000);
+        }
+
+        // Start the countdown when the page loads
+        document.addEventListener('DOMContentLoaded', (event) => {
+            startCountdown();
+        });
         </script>
 </body>
 </html>
